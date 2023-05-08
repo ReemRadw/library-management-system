@@ -1,35 +1,32 @@
 import React, { useState, useEffect } from "react";
-import MoviesCard from "./BookCard";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
 import Spinner from "react-bootstrap/Spinner";
 import Alert from "react-bootstrap/Alert";
 import { useParams } from "react-router-dom";
-import './style/MovieCard.css'
+import "./style/MovieCard.css";
 import BookCard from "./BookCard";
+import { getAuthUser } from "./helper/Storage";
 
+let all;
 const Home = () => {
+  const auth = getAuthUser();
   const [books, setBooks] = useState({
     loading: true,
     results: [],
     err: null,
     reload: 0,
   });
-  const { bookName } = useParams();
   const [search, setSearch] = useState("");
-  const [req, setReq] = useState("");
-
-
 
   useEffect(() => {
     setBooks({ ...books, loading: true });
     axios
-      .get("http://127.0.0.1:5000/bookDashboard/getAll", {
-  
-      })
+      .get("http://127.0.0.1:5000/bookDashboard/getAll", {})
       .then((resp) => {
-        console.log(resp);
         setBooks({ ...books, results: resp.data, loading: false, err: null });
+        all = resp.data;
+        // console.log(all);
       })
       .catch((err) => {
         setBooks({
@@ -40,31 +37,39 @@ const Home = () => {
       });
   }, [books.reload]);
 
-
-
-
   const handleSearchSubmit = (event) => {
+    const query = event.target.query.value;
     event.preventDefault();
-    const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJyZWVtMTAwQGdtYWlsLmNvbSIsImlhdCI6MTY4MzE5MzU1MCwiZXhwIjoxNjgzNzk4MzUwfQ.MlxYFxJ7PU3aA5-ocPOwf5Kfb-CNq0gyC6hOypm0zZ0";
-  axios
-    .get("http://127.0.0.1:5000/readerDashboard/search/"  + bookName,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      "Access-Control-Allow-Origin": "*",
-    }
-    ).then(res => setBooks({...books})).catch(err => console.log(err))
-   
-  
-
-    };
-
+    query
+      ? axios
+          .get("http://127.0.0.1:5000/readerDashboard/search/" + query, {
+            headers: {
+              Authorization: `Bearer ${auth.data.accessToken}`,
+            },
+            "Access-Control-Allow-Origin": "*",
+          })
+          .then((res) => {
+            console.log(res.data.data);
+            // setBooks({});
+            setBooks({
+              ...books,
+              results: res.data.data,
+              loading: false,
+              err: null,
+            });
+          })
+          .catch((err) => console.log(err))
+      : setBooks({
+          ...books,
+          results: all,
+          loading: false,
+          err: null,
+        });
+    // console.log(teq);
+  };
 
   return (
     <div className="home-container p-4">
-    
       {books.loading === true && (
         <div className="text-center">
           <Spinner animation="border" role="status">
@@ -79,8 +84,9 @@ const Home = () => {
           <Form onSubmit={handleSearchSubmit}>
             <Form.Group className="mb-3 d-flex">
               <Form.Control
+                name="query"
                 type="text"
-                placeholder="Search Movies"
+                placeholder="Search Books"
                 className="rounded-0"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -95,8 +101,8 @@ const Home = () => {
                 <BookCard
                   name={book.bookName}
                   description={book.Description}
-                  field = {book.Field}
-                  pubDate = {book.publicationDate}
+                  field={book.Field}
+                  pubDate={book.publicationDate}
                   image={book.imageUrl}
                   id={book.id}
                 />
@@ -116,11 +122,11 @@ const Home = () => {
         books.err == null &&
         books.results.length === 0 && (
           <Alert variant="info" className="p-2">
-            No Movies, please try again later !
+            No Books, please try again later !
           </Alert>
         )}
     </div>
   );
-        };
+};
 
 export default Home;

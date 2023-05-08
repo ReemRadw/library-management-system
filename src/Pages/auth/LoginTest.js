@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Alert from "react-bootstrap/Alert";
-import '../../style/Login.css'
+import "../../style/Login.css";
 import axios from "axios";
 import { setAuthUser } from "../../helper/Storage";
-import {  useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 const LoginTest = () => {
   const navigate = useNavigate();
@@ -28,27 +27,29 @@ const LoginTest = () => {
       .then((resp) => {
         setLogin({ ...login, loading: false, err: [] });
         setAuthUser(resp.data);
-        navigate("/about");
+        resp.data.data.user.type == "reader"
+          ? navigate("/homeReader")
+          : navigate("/home");
       })
       .catch((errors) => {
         setLogin({
           ...login,
           loading: false,
           err: errors.response.data.errors,
-        }); 
+        });
       });
   };
   return (
     <div className="login-container">
       <h1>Login </h1>
 
- {/*}    {login.err.map((error, index) => (
+      {/*}    {login.err.map((error, index) => (
         <Alert  variant="danger" className="p-2">
           {error.msg}
         </Alert>
       ))} */}
 
-      <Form onSubmit={LoginFun} type = "login-form" >
+      <Form onSubmit={LoginFun} type="login-form">
         <Form.Group className="mb-3">
           <Form.Control
             type="email"
@@ -73,7 +74,8 @@ const LoginTest = () => {
           className="btn btn-dark w-100 ms-2"
           variant="primary"
           type="submit"
-          disabled={login.loading === true}>
+          disabled={login.loading === true}
+        >
           Login
         </Button>
       </Form>
