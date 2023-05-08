@@ -30,7 +30,6 @@ const Home = () => {
       .then((resp) => {
         setBooks({ ...books, results: resp.data, loading: false, err: null });
         all = resp.data;
-        // console.log(all);
       })
       .catch((err) => {
         setBooks({
@@ -53,8 +52,6 @@ const Home = () => {
             "Access-Control-Allow-Origin": "*",
           })
           .then((res) => {
-            console.log(res.data.data);
-            // setBooks({});
             setBooks({
               ...books,
               results: res.data.data,
@@ -69,7 +66,6 @@ const Home = () => {
           loading: false,
           err: null,
         });
-    // console.log(teq);
   };
 
   return (

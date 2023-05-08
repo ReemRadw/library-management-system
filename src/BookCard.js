@@ -22,9 +22,7 @@ const BookCard = (props) => {
           "Access-Control-Allow-Origin": "*",
         }
       )
-      .then((res) => {
-        console.log(res.data);
-      })
+      .then((res) => {})
       .catch((err) => console.log(err));
   };
 

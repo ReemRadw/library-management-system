@@ -32,7 +32,6 @@ function RequestsCRUD() {
         "Access-Control-Allow-Origin": "*",
       })
       .then((res) => {
-        console.log(res);
         navigate("/readRequests");
       })
       .catch((err) => console.log(err));
@@ -45,9 +44,7 @@ function RequestsCRUD() {
         },
         "Access-Control-Allow-Origin": "*",
       })
-      .then((res) => {
-        console.log(res);
-      })
+      .then((res) => {})
       .catch((err) => console.log(err));
   };
   const deleteRequest = (id) => {
@@ -58,9 +55,7 @@ function RequestsCRUD() {
         },
         "Access-Control-Allow-Origin": "*",
       })
-      .then((res) => {
-        console.log(res);
-      })
+      .then((res) => {})
       .catch((err) => console.log(err));
   };
 

@@ -26,10 +26,8 @@ function CreateReader() {
           },
           "Access-Control-Allow-Origin": "*",
         }
-
       )
       .then((res) => {
-        console.log(res);
         navigate("/readChapters");
       })
       .catch((err) => console.log(err));

@@ -27,7 +27,6 @@ function ShowRequestsHistory() {
       .then((res) => {
         data = res.data.data.Request;
         setReader(data);
-        console.log(data);
       })
       .catch((err) => console.log(err));
   }, []);
