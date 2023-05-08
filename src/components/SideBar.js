@@ -40,7 +40,7 @@ const SideBar = () => {
         {/*AUTH AND ADMIN */}
         {auth && auth.data.user.type === "admin" && (
           <>
-            <NavLink to={"/home"} className="link" activeclassName="active">
+            <NavLink to={"/home"} className="link">
               <div className="icon">
                 <FaTh />
               </div>
@@ -52,7 +52,7 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink to={"/about"} className="link" activeclassName="active">
+            <NavLink to={"/about"} className="link">
               <div className="icon">
                 <FaUserAlt />
               </div>
@@ -64,11 +64,7 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink
-              to={"/readBooks"}
-              className="link"
-              activeclassName="active"
-            >
+            <NavLink to={"/readBooks"} className="link">
               <div className="icon">
                 <MenuBookOutlinedIcon />
               </div>
@@ -80,11 +76,7 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink
-              to={"/readChapters"}
-              className="link"
-              activeclassName="active"
-            >
+            <NavLink to={"/readChapters"} className="link">
               <div className="icon">
                 <LibraryBooksOutlinedIcon />
               </div>
@@ -96,11 +88,7 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink
-              to={"/readRequests"}
-              className="link"
-              activeclassName="active"
-            >
+            <NavLink to={"/readRequests"} className="link">
               <div className="icon">
                 <FaShoppingBag />
               </div>
@@ -112,12 +100,7 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink
-              onClick={Logout}
-              to={"/"}
-              className="link"
-              activeclassName="active"
-            >
+            <NavLink onClick={Logout} to={"/"} className="link">
               <div className="icon">
                 <LogoutOutlinedIcon />
               </div>
@@ -134,7 +117,7 @@ const SideBar = () => {
         {/*NOT AUTH */}
         {!auth && (
           <>
-            <NavLink to={"/"} className="link" activeclassName="active">
+            <NavLink to={"/"} className="link">
               <div className="icon">
                 <FaTh />
               </div>
@@ -146,7 +129,7 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink to={"/register"} className="link" activeclassName="active">
+            <NavLink to={"/register"} className="link">
               <div className="icon">
                 <FaUserAlt />
               </div>
@@ -161,11 +144,7 @@ const SideBar = () => {
         )}
         {auth && auth.data.user.type === "reader" && (
           <>
-            <NavLink
-              to={"/homeReader"}
-              className="link"
-              activeclassName="active"
-            >
+            <NavLink to={"/homeReader"} className="link">
               <div className="icon">
                 <FaTh />
               </div>
@@ -177,11 +156,7 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink
-              to={"/showRequestsHis"}
-              className="link"
-              activeclassName="active"
-            >
+            <NavLink to={"/showRequestsHis"} className="link">
               <div className="icon">
                 <MenuBookOutlinedIcon />
               </div>
@@ -193,7 +168,7 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink to={"/about"} className="link" activeclassName="active">
+            <NavLink to={"/about"} className="link">
               <div className="icon">
                 <FaUserAlt />
               </div>
@@ -205,7 +180,7 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink to={"/contact"} className="link" activeclassName="active">
+            <NavLink to={"/contact"} className="link">
               <div className="icon">
                 <LibraryBooksOutlinedIcon />
               </div>
@@ -217,12 +192,7 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink
-              onClick={Logout}
-              to={"/"}
-              className="link"
-              activeclassName="active"
-            >
+            <NavLink onClick={Logout} to={"/"} className="link">
               <div className="icon">
                 <LogoutOutlinedIcon />
               </div>

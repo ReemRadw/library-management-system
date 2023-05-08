@@ -77,8 +77,13 @@ function RequestsCRUD() {
           </thead>
           <tbody>
             {request.map((data, i) => (
+              //  r = `http://localhost:3000/ShowRequestsHistory/${data.userId}`
               <tr key={i}>
-                <td>{data.userId}</td>
+                <td>
+                  <a href={`ShowRequestsHistory/${data.userId}`}>
+                    {data.userId}
+                  </a>
+                </td>
                 <td>{data.bookId}</td>
                 <td>{data.status}</td>
 
