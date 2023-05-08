@@ -39,6 +39,9 @@ function ReadBooks() {
   return (
     <div className="d-flex justify-content-center align-items-center">
       <div className="CRUD-table">
+        <Link to="/createBooks" className="btn btn-success ">
+          <PersonAddAltOutlinedIcon />
+        </Link>
         <table className="table">
           <thead>
             <tr>
@@ -58,9 +61,6 @@ function ReadBooks() {
                 <td>{data.PDF}</td>
 
                 <td>
-                  <Link to="/createBooks" className="btn btn-success ">
-                    <PersonAddAltOutlinedIcon />
-                  </Link>
                   <Link
                     to={`/updateBook/${data.id}`}
                     className="btn btn-primary"

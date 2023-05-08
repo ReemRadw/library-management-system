@@ -52,18 +52,6 @@ const SideBar = () => {
               </div>
             </NavLink>
 
-            <NavLink to={"/about"} className="link">
-              <div className="icon">
-                <FaUserAlt />
-              </div>
-              <div
-                style={{ display: isOpen ? "block" : "none" }}
-                className="link_text"
-              >
-                About
-              </div>
-            </NavLink>
-
             <NavLink to={"/readBooks"} className="link">
               <div className="icon">
                 <MenuBookOutlinedIcon />
@@ -153,42 +141,6 @@ const SideBar = () => {
                 className="link_text"
               >
                 Dashboard
-              </div>
-            </NavLink>
-
-            <NavLink to={"/showRequestsHis"} className="link">
-              <div className="icon">
-                <MenuBookOutlinedIcon />
-              </div>
-              <div
-                style={{ display: isOpen ? "block" : "none" }}
-                className="link_text"
-              >
-                Requests
-              </div>
-            </NavLink>
-
-            <NavLink to={"/about"} className="link">
-              <div className="icon">
-                <FaUserAlt />
-              </div>
-              <div
-                style={{ display: isOpen ? "block" : "none" }}
-                className="link_text"
-              >
-                About
-              </div>
-            </NavLink>
-
-            <NavLink to={"/contact"} className="link">
-              <div className="icon">
-                <LibraryBooksOutlinedIcon />
-              </div>
-              <div
-                style={{ display: isOpen ? "block" : "none" }}
-                className="link_text"
-              >
-                Contact Us
               </div>
             </NavLink>
 
