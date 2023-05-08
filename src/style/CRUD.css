@@ -1,0 +1,21 @@
+.CRUD-table{
+    width:50rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 3rem;
+    background-color: rgb(225, 234, 244);
+    border-radius: 10px;
+    
+}
+.RCRUD-table{
+    background-color: rgb(225, 234, 244);
+    width: 30rem;
+    padding: 1rem;
+}
+.btn{
+    margin: 2px;
+}
+.radioBtn{
+    
+}
