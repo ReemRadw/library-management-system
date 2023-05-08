@@ -34,17 +34,17 @@ function ShowHistory() {
         <table className="table">
           <thead>
             <tr>
-              <th>ID</th>
+              {/* <th>ID</th> */}
               <th>Book Name</th>
-              <th>User Email</th>
+              {/* <th>User Email</th> */}
             </tr>
           </thead>
           <tbody>
             {student.map((data, i) => (
               <tr key={i}>
-                <td>{data.id}</td>
+                {/* <td>{data.id}</td> */}
                 <td>{data.bookName}</td>
-                <td>{data.userEmail}</td>
+                {/* <td>{data.userEmail}</td> */}
               </tr>
             ))}
           </tbody>
