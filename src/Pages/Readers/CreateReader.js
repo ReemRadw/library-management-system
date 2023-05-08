@@ -10,7 +10,6 @@ function CreateReader() {
   const auth = getAuthUser();
   const navigate = useNavigate();
   function handleSubmit(event) {
-    console.log(event.target.elements.email.value); // from elements property
     event.preventDefault();
     axios
       .post(
