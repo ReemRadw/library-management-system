@@ -18,6 +18,7 @@ import LoginTest from "./Pages/auth/LoginTest.js";
 import RegisterTest from "./Pages/auth/RegisterTest.js";
 import { About } from "./Pages/Info/About.js";
 import ShowRequestsHistory from "./Pages/Requests/ShowRequestsHistory.js";
+import ShowHistory from "./ShowHistory.js";
 
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
             path="/ShowRequestsHistory/:id"
             element={<ShowRequestsHistory />}
           ></Route>
+          <Route path="/ShowHistory" element={<ShowHistory />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

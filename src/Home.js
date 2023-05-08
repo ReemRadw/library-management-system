@@ -7,6 +7,9 @@ import { useParams } from "react-router-dom";
 import "./style/MovieCard.css";
 import BookCard from "./BookCard";
 import { getAuthUser } from "./helper/Storage";
+import ShowHistory from "./ShowHistory";
+import { useNavigate } from "react-router-dom";
+import ShowRequestsHistory from "./Pages/Requests/ShowRequestsHistory";
 
 let all;
 const Home = () => {
@@ -18,6 +21,7 @@ const Home = () => {
     reload: 0,
   });
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     setBooks({ ...books, loading: true });
@@ -92,6 +96,12 @@ const Home = () => {
                 onChange={(e) => setSearch(e.target.value)}
               />
               <button className="btn btn-dark rounded-0">Search</button>
+              <button
+                className="btn btn-danger "
+                onClick={(e) => navigate("/ShowHistory")}
+              >
+                Show History
+              </button>
             </Form.Group>
           </Form>
 
