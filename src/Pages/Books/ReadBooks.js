@@ -45,6 +45,7 @@ function ReadBooks() {
         <table className="table">
           <thead>
             <tr>
+              <th>Image</th>
               <th>Book Name</th>
               <th>Field</th>
               <th>Publication Date</th>
@@ -55,6 +56,13 @@ function ReadBooks() {
           <tbody>
             {book.map((data, i) => (
               <tr key={i}>
+                <td>
+                  <img
+                    src={`http://localhost:5000/bookDashboard/displayImg/${data.imageUrl}`}
+                    width={50}
+                    height={50}
+                  ></img>
+                </td>
                 <td>{data.bookName}</td>
                 <td>{data.Field}</td>
                 <td>{data.publicationDate}</td>
